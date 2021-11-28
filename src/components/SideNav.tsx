@@ -12,7 +12,7 @@ const BcapLevel1 = {
 
 let Name = {
   margin: '2rem',
-  'white-space': 'pre-wrap',
+  whiteSpace: 'pre-wrap' as const,
   cursor: 'pointer',
 }
 
@@ -58,14 +58,17 @@ export function SideNav({bcap3, selectBcap}: SideNavProps) {
     let content: JSX.Element[] = [];
     bcap1.forEach((list, key, map) => {
       content.push(
-        <div className="bcap-level1" style={BcapLevel1}>
+        <div className="bcap-level1"
+             style={BcapLevel1}
+             key={key}>
           <div className="bcap-level1-name"
                style={ selected === key ? SelectedName : Name }
                onClick={e => clickName(key)}>
             { key }
           </div>
           {list.map(bcap2Name => {
-            return <div className="bcap-level2">
+            return <div className="bcap-level2"
+                        key={bcap2Name}>
               <div className="bcap-level2-name"
                    style={ selected === bcap2Name ? SelectedName : Name }
                    onClick={e => clickName(bcap2Name)}>
@@ -75,6 +78,7 @@ export function SideNav({bcap3, selectBcap}: SideNavProps) {
                 {(bcap2.get(bcap2Name) || []).map(bcap3Name => {
                   return <div className="bcap-level3-name"
                               style={ selected === bcap3Name ? SelectedName : Name }
+                              key={bcap3Name}
                               onClick={e => clickName(bcap3Name)}>
                     { `        ${bcap3Name}` }
                   </div>
