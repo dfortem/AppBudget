@@ -17,7 +17,7 @@ const AppCardStyles = {
 
 const AppSpend = {
   margin: '2rem 0',
-  textDecoration: 'italic',
+  fontStyle: 'italic',
 }
 
 export type AppCardProps = {

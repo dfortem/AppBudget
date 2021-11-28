@@ -3,7 +3,6 @@ import React, {useEffect, useState} from "react";
 const SideNavStyles = {
   height: 'calc(100% - 4rem)',
   padding: '2rem',
-  borderRight: '1px solid red',
   overflow: 'scroll',
 }
 const BcapLevel1 = {
